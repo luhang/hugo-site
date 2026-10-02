@@ -1,7 +1,6 @@
 baseURL = 'http://localhost:1313/'
 languageCode = 'zh-cn'
 title = '我的文档站'
-contentDir = '../hugo-content'
 
 [params]
   description = '用 Markdown 编写的文档与笔记'

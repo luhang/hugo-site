@@ -22,16 +22,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout site repo
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: hugo-site
-
-      - name: Checkout content repo
-        uses: actions/checkout@v4
-        with:
-          repository: luhang/hugo-content
-          path: hugo-content
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -40,14 +32,12 @@ jobs:
           extended: true
 
       - name: Build site
-        run: |
-          cd hugo-site
-          hugo --minify --destination public --baseURL https://luhang.github.io/hugo-site/
+        run: hugo --minify --destination public --baseURL https://luhang.github.io/hugo-site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: hugo-site/public
+          path: public
 
   deploy:
     environment:
