@@ -1,0 +1,15 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<article>
+    <h1>{{ .Title }}</h1>
+    <div class="meta">
+        {{ .Date.Format "2006-01-02" }}
+        {{ if .Params.tags }}
+            · {{ range .Params.tags }}<span style="background:#eef; padding:0.125rem 0.5rem; border-radius:10px; margin-left:0.25rem;">{{ . }}</span>{{ end }}
+        {{ end }}
+    </div>
+    {{ .Content }}
+</article>
+<a href="{{ .Site.Home.RelPermalink }}" style="color:#3498db; text-decoration:none;">← 返回首页</a>
+{{ end }}

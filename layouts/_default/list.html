@@ -1,0 +1,17 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<h1 style="margin-bottom:1.5rem;">{{ .Title }}</h1>
+{{ .Content }}
+<ul class="post-list">
+    {{ range .Pages }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+        {{ if .Summary }}
+            <p style="margin-top:0.5rem; color:#555; font-size:0.95rem;">{{ .Summary | truncate 120 }}</p>
+        {{ end }}
+    </li>
+    {{ end }}
+</ul>
+{{ end }}

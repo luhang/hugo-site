@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section style="text-align:center; padding:2rem 0;">
+    <h1 style="font-size:2rem; margin-bottom:0.5rem;">{{ .Site.Title }}</h1>
+    <p style="color:#666; font-size:1.1rem;">{{ .Site.Params.description }}</p>
+</section>
+
+<section>
+    <h2 style="margin-bottom:1rem;">最新文章</h2>
+    <ul class="post-list">
+        {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+        </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}

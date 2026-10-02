@@ -1,0 +1,21 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'zh-cn'
+title = '我的文档站'
+contentDir = '../hugo-content'
+
+[params]
+  description = '用 Markdown 编写的文档与笔记'
+
+[menu]
+  [[menu.main]]
+    name = '首页'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = '文章'
+    url = '/posts/'
+    weight = 2
+  [[menu.main]]
+    name = '关于'
+    url = '/about/'
+    weight = 3
